@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Lender - Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="navbar">Smart Lender</div>
+  <div class="container">
+    <h1>Prediction Result</h1>
+    {% if result == 'Approved' %}
+      <div class="result-badge approved">✔ Loan {{ result }}</div>
+    {% else %}
+      <div class="result-badge rejected">✘ Loan {{ result }}</div>
+    {% endif %}
+    <p class="confidence">Model confidence: {{ confidence }}%</p>
+    <br>
+    <a class="btn" href="{{ url_for('predict_form') }}">Try Another Applicant</a>
+  </div>
+</body>
+</html>
